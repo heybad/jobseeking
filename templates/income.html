@@ -1,0 +1,27 @@
+{% extends "portfolio.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression Prediction</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+</head>
+<body>
+    <h1>Income prediction on age and experience</h1>
+    <form method="post" action="/portfolio/income">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <label for="experience">Experience:</label>
+        <input type="number" id="experience" name="experience" required>
+        <input type="submit" value="Predict Income">
+    </form>
+
+    {% if prediction %}
+    <p>Predicted Income: ${{ prediction[0][0]|round(2) }}</p>
+    {% endif %}
+</body>
+</html>
+{% endblock %}

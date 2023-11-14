@@ -1,0 +1,29 @@
+{% extends "portfolio.html" %}
+{% block content %}
+<html>
+  <body>
+
+    <h1>Loan Prediction</h1>
+    <form method="post" action="/portfolio/loans">
+
+        <label> Gender(1,0):</label>
+        <input type="number" name="Gender" required>
+
+        <label> Married(1,0):</label>
+        <input type="number" name="Married" required>
+
+        <label> Education(1,0): </label>
+        <input type="number" name="Education" required>
+
+
+      <input type="submit" value="Predict Loan">
+    </form>
+
+    {% if prediction %}
+    <p>Predicted Income: ${{prediction}}</p>
+    {% endif %}
+
+  </body>
+</html>
+
+{% endblock %}
